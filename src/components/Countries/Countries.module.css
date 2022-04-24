@@ -1,0 +1,6 @@
+.countries {
+  display: grid;
+  grid-template-columns: repeat(4, 20rem);
+  justify-content: space-between;
+  row-gap: 4rem;
+}

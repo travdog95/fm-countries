@@ -1,0 +1,32 @@
+.header-container {
+  background-color: white;
+  border-bottom: 1px solid lightgray
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: var(--desktop-width);
+  padding: var(--site-padding);
+}
+
+.title {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.theme-container {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.theme-container:hover {
+  cursor: pointer;
+}
+
+.theme-label {
+  padding-left: .25em;
+}

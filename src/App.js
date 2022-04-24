@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "./css/_variables.css";
+import "./css/_utilities.css";
+import { useState, useEffect } from "react";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+
+import constants from "./helpers/constants";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      const response = await fetch(`${constants.API}all`);
+      if (!response.ok) {
+        throw new Error("Could not fetch countries!");
+      }
+      const data = await response.json();
+
+      setCountries(data);
+
+      setIsLoading(false);
+    };
+
+    fetchCountries();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading Countries...</p>
+      </section>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header theme="Light" />
+      <div className="app-container">
+        <Main countries={countries} />
+      </div>
     </div>
   );
 }
