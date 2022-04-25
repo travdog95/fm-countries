@@ -1,11 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 import classes from "./CountryDetail.module.css";
 import BorderCountry from "../BorderCountry/BorderCountry";
 
 const CountryDetail = (props) => {
-  const { country, countries } = props;
+  // const { country } = props;
+  const countries = useSelector((state) => state.app.countries);
+  console.log(countries);
+  const country = countries[21];
+  // console.log(country);
 
   const currencyCodesArray = country.currencies.map((currency) => currency.code);
   const currencyCodes = currencyCodesArray.join(", ");
@@ -72,9 +77,7 @@ const CountryDetail = (props) => {
           <div className={classes["meta-data-footer"]}>
             <div className={classes.label}>Border Countries: </div>
             {country.borders.map((countryCode) => {
-              return (
-                <BorderCountry countryCode={countryCode} key={countryCode} countries={countries} />
-              );
+              return <BorderCountry countryCode={countryCode} key={countryCode} />;
             })}
           </div>
         </div>

@@ -2,31 +2,23 @@ import "./App.css";
 import "./css/_variables.css";
 import "./css/_utilities.css";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { fetchCountries } from "./store/app-actions";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
-import CountryDetail from "./components/CountryDetail/CountryDetail";
+// import CountryDetail from "./components/CountryDetail/CountryDetail";
 
-import constants from "./helpers/constants";
-
-function App() {
+const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [countries, setCountries] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchCountries = async () => {
-      const response = await fetch(`${constants.API}all`);
-      if (!response.ok) {
-        throw new Error("Could not fetch countries!");
-      }
-      const data = await response.json();
+    dispatch(fetchCountries());
+    console.log("fetch");
 
-      setCountries(data);
-
-      setIsLoading(false);
-    };
-
-    fetchCountries();
-  }, []);
+    setIsLoading(false);
+  }, [dispatch]);
 
   if (isLoading) {
     return (
@@ -40,11 +32,11 @@ function App() {
     <div className="app">
       <Header theme="Light" />
       <div className="app-container">
-        <Main countries={countries} />
-        {/* <CountryDetail country={countries[21]} countries={countries} /> */}
+        <Main />
+        {/* <CountryDetail /> */}
       </div>
     </div>
   );
-}
+};
 
 export default App;
