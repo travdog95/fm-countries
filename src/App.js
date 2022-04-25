@@ -4,6 +4,7 @@ import "./css/_utilities.css";
 import { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import CountryDetail from "./components/CountryDetail/CountryDetail";
 
 import constants from "./helpers/constants";
 
@@ -40,6 +41,7 @@ function App() {
       <Header theme="Light" />
       <div className="app-container">
         <Main countries={countries} />
+        {/* <CountryDetail country={countries[21]} countries={countries} /> */}
       </div>
     </div>
   );
