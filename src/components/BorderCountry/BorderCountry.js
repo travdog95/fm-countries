@@ -1,15 +1,17 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
+import { appActions } from "../../store/app-reducer";
 import classes from "./BorderCountry.module.css";
 import tko from "../../helpers/utilities";
 
 const BorderCountry = (props) => {
   const { countryCode } = props;
-  const countries = useSelector((state) => state.countries);
+  const dispatch = useDispatch();
+  const countries = useSelector((state) => state.app.countries);
   const country = tko.getCountryByCode(countryCode, countries);
 
   const handleClick = (country) => {
-    console.log(country);
+    dispatch(appActions.setSelectedCountry(country));
   };
 
   return (

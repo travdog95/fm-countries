@@ -1,10 +1,14 @@
+import { useDispatch } from "react-redux";
+
+import { appActions } from "../../store/app-reducer";
 import classes from "./Country.module.css";
 
 const Country = (props) => {
   const { country } = props;
+  const dispatch = useDispatch();
 
   const handleClick = (countryObject) => {
-    console.log(countryObject);
+    dispatch(appActions.setSelectedCountry(countryObject));
   };
 
   return (

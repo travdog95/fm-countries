@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   countries: [],
   filteredCountries: [],
+  selectedCountry: {},
 };
 
 const appSlice = createSlice({
@@ -14,6 +15,9 @@ const appSlice = createSlice({
     },
     loadCountries(state, action) {
       state.countries = action.payload;
+    },
+    setSelectedCountry(state, action) {
+      state.selectedCountry = action.payload;
     },
   },
 });

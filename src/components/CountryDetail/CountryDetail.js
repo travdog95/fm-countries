@@ -1,16 +1,16 @@
+import { useDispatch } from "react-redux";
+
+import { appActions } from "../../store/app-reducer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
 
 import classes from "./CountryDetail.module.css";
 import BorderCountry from "../BorderCountry/BorderCountry";
 
 const CountryDetail = (props) => {
-  // const { country } = props;
-  const countries = useSelector((state) => state.app.countries);
-  console.log(countries);
-  const country = countries[21];
-  // console.log(country);
+  const { country } = props;
+
+  const dispatch = useDispatch();
 
   const currencyCodesArray = country.currencies.map((currency) => currency.code);
   const currencyCodes = currencyCodesArray.join(", ");
@@ -19,7 +19,7 @@ const CountryDetail = (props) => {
   const languageNames = languageNamesArray.join(", ");
 
   const handleBackButtonClick = () => {
-    console.log("go back");
+    dispatch(appActions.setSelectedCountry({}));
   };
 
   return (
@@ -76,9 +76,13 @@ const CountryDetail = (props) => {
           </div>
           <div className={classes["meta-data-footer"]}>
             <div className={classes.label}>Border Countries: </div>
-            {country.borders.map((countryCode) => {
-              return <BorderCountry countryCode={countryCode} key={countryCode} />;
-            })}
+            {country.borders ? (
+              country.borders.map((countryCode) => {
+                return <BorderCountry countryCode={countryCode} key={countryCode} />;
+              })
+            ) : (
+              <div className={classes.empty}>None</div>
+            )}
           </div>
         </div>
       </div>
