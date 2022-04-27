@@ -4,7 +4,7 @@ import Country from "../Country/Country";
 import classes from "./Countries.module.css";
 
 const Countries = () => {
-  const countries = useSelector((state) => state.app.countries);
+  const countries = useSelector((state) => state.app.filteredCountries);
 
   return (
     <div className={classes.countries}>

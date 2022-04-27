@@ -10,7 +10,7 @@ const appSlice = createSlice({
   name: "app",
   initialState: initialState,
   reducers: {
-    filterCountries(state, action) {
+    setFilteredCountries(state, action) {
       state.filteredCountries = action.payload;
     },
     loadCountries(state, action) {

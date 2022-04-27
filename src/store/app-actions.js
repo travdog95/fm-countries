@@ -10,5 +10,6 @@ export const fetchCountries = () => {
     const countries = await response.json();
 
     dispatch(appActions.loadCountries(countries));
+    dispatch(appActions.setFilteredCountries(countries));
   };
 };
