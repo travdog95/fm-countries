@@ -4,6 +4,7 @@ const initialState = {
   countries: [],
   filteredCountries: [],
   selectedCountry: {},
+  theme: "light",
 };
 
 const appSlice = createSlice({
@@ -18,6 +19,9 @@ const appSlice = createSlice({
     },
     setSelectedCountry(state, action) {
       state.selectedCountry = action.payload;
+    },
+    setTheme(state, action) {
+      state.theme = action.payload;
     },
   },
 });
