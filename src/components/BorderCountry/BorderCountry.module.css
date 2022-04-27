@@ -2,7 +2,6 @@
   border: 1px solid var(--light-mode-elements-border);
   border-radius: 3px;
   padding: 0 1rem;
-  margin-left: .5rem;
 }
 
 .country:hover {

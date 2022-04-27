@@ -77,9 +77,11 @@ const CountryDetail = (props) => {
           <div className={classes["meta-data-footer"]}>
             <div className={classes.label}>Border Countries: </div>
             {country.borders ? (
-              country.borders.map((countryCode) => {
-                return <BorderCountry countryCode={countryCode} key={countryCode} />;
-              })
+              <div className={classes["border-countries"]}>
+                {country.borders.map((countryCode) => {
+                  return <BorderCountry countryCode={countryCode} key={countryCode} />;
+                })}
+              </div>
             ) : (
               <div className={classes.empty}>None</div>
             )}

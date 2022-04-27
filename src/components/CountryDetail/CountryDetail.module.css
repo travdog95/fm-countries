@@ -58,6 +58,7 @@
 
 .label, .name {
   font-weight: 900;
+  white-space: nowrap;
 }
 
 .name {
@@ -72,4 +73,12 @@
 
 .empty {
   margin-left: .5rem;
+}
+
+.border-countries {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  padding-left: .5rem;
 }
