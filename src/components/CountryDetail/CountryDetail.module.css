@@ -3,6 +3,11 @@
   padding: 0 var(--site-padding);
 }
 
+.container.dark {
+  background-color: var(--dark-mode-background);
+  color: white !important;
+}
+
 .header {
   padding: 3rem 0;
 }
@@ -14,6 +19,12 @@
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   color: var(--light-mode-input);
+}
+
+.button.dark {
+  background-color: var(--dark-mode-elements);
+  border: none;
+  color: var(--dark-mode-input);
 }
 
 .button span {

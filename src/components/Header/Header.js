@@ -1,18 +1,22 @@
+import { useSelector, useDispatch } from "react-redux";
+
+import { appActions } from "../../store/app-reducer";
 import classes from "./Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 
-const Header = (props) => {
-  const { theme } = props;
-  const changeThemeIcon = theme === "Light" ? faMoon : faSun;
-  const changeThemeLabel = theme === "Light" ? "Dark" : "Light";
+const Header = () => {
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.app.theme);
+  const changeThemeIcon = theme === "light" ? faMoon : faSun;
+  const changeThemeLabel = theme === "light" ? "Dark" : "Light";
 
   const changeTheme = () => {
-    console.log(changeThemeLabel);
+    dispatch(appActions.setTheme(changeThemeLabel.toLocaleLowerCase()));
   };
 
   return (
-    <div className={classes["header-container"]}>
+    <div className={`${classes["header-container"]} ${classes[`${theme}`]}`}>
       <div className={classes.header}>
         <div className={classes.title}>Where in the world?</div>
         <div className={classes["theme-container"]} onClick={changeTheme}>

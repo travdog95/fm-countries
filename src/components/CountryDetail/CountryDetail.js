@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { appActions } from "../../store/app-reducer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +12,8 @@ const CountryDetail = (props) => {
 
   const dispatch = useDispatch();
 
+  const theme = useSelector((state) => state.app.theme);
+
   const currencyCodesArray = country.currencies.map((currency) => currency.code);
   const currencyCodes = currencyCodesArray.join(", ");
 
@@ -23,9 +25,12 @@ const CountryDetail = (props) => {
   };
 
   return (
-    <div className={classes.container}>
+    <div className={`${classes.container} ${classes[`${theme}`]}`}>
       <div className={classes.header}>
-        <button className={classes.button} onClick={handleBackButtonClick}>
+        <button
+          className={`${classes.button} ${classes[`${theme}`]}`}
+          onClick={handleBackButtonClick}
+        >
           <FontAwesomeIcon icon={faArrowLeft} />
           <span>Back</span>
         </button>

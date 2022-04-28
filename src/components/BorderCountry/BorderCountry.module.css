@@ -4,6 +4,11 @@
   padding: 0 1rem;
 }
 
+.country.dark {
+  border: 1px solid var(--dark-mode-elements);
+  background-color: var(--dark-mode-elements);
+}
+
 .country:hover {
   cursor: pointer;
 }

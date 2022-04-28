@@ -3,9 +3,16 @@
 }
 
 .country {
-  background-color: white;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.country.light {
+  background-color: white;
+}
+
+.country.dark {
+  background-color: var(--dark-mode-elements);
 }
 
 .country:hover {
@@ -24,6 +31,10 @@
 
 .meta-data {
   padding: 1rem 1rem 3rem 1rem;
+}
+
+.meta-data.dark {
+  color: white !important;
 }
 
 .label, .name {

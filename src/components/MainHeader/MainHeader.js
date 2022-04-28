@@ -17,24 +17,8 @@ const MainHeader = () => {
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.app.countries);
   const filteredCountries = useSelector((state) => state.app.filteredCountries);
+  const theme = useSelector((state) => state.app.theme);
 
-  const selectStyles = {
-    menu: (provided, state) => ({
-      ...provided,
-      width: "13rem",
-    }),
-    option: (provided, state) => ({
-      ...provided,
-      padding: 5,
-      paddingLeft: 15,
-    }),
-    control: (provided, state) => ({
-      ...provided,
-      width: "13rem",
-      border: "none",
-      borderRadius: "5px",
-    }),
-  };
   const handleRegionFilterChange = (event) => {
     const region = event.value;
     setRegionFilter(region);
@@ -56,23 +40,25 @@ const MainHeader = () => {
   return (
     <div className={classes["main-header"]}>
       <div className={classes["search-outer-container"]}>
-        <div className={classes["search-container"]}>
+        <div className={`${classes["search-container"]} ${classes[`${theme}`]}`}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
           <input
             placeholder="Search for a country..."
-            className={classes.search}
+            className={`${classes.search} ${classes[`${theme}`]}`}
             onChange={handleSearch}
             value={searchValue}
           />
         </div>
-        <div className={classes.label}>{filteredCountries.length} countries displayed</div>
+        <div className={`${classes.label} ${classes[`${theme}`]}`}>
+          {filteredCountries.length} countries displayed
+        </div>
       </div>
       <Select
         options={constants.REGIONS}
         onChange={handleRegionFilterChange}
         defaultValue={"all"}
-        styles={selectStyles}
         placeholder="Filter by Region"
+        className={`${classes.select} ${classes[`${theme}`]}`}
       />
     </div>
   );

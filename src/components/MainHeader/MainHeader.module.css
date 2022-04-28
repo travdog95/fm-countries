@@ -15,29 +15,90 @@
 }
 
 .search-container {
-  background-color: var(--light-mode-elements);
   padding-left: 1.5rem;
   border-radius: 5px;
+}
+
+.search-container.light {
+  background-color: var(--light-mode-elements);
+}
+
+.search-container.dark {
+  background-color: var(--dark-mode-elements);
+  color: white;
 }
 
 .search {
   padding: 1rem;
   outline: none;
   border: none;
-  background-color: var(--light-mode-elements);
-  color: var(--light-mode-input);
   border-radius: 5px;
   font-size: var(--font-size);
-}
-
-.search {
   width: 25rem;
 }
 
-.search::placeholder {
+.search.light {
+  background-color: var(--light-mode-elements);
   color: var(--light-mode-input);
+}
+
+.search.dark {
+  background-color: var(--dark-mode-elements);
+  color: var(--dark-mode-input);
+}
+
+.search.light::placeholder {
+  color: var(--light-mode-input);
+}
+
+.search.dark::placeholder {
+  color: var(--dark-mode-input);
 }
 
 .label {
   font-weight: 900;
+}
+
+.label.dark {
+  color: white;
+}
+
+.select [class$="-control"] {
+  width: 13rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.select.light [class$="-control"],
+.select.light [class$="-menu"] {
+  background-color: white;
+}
+
+.select.dark [class$="-control"],
+.select.dark [class$="-menu"] {
+  background-color: var(--dark-mode-elements);
+  color: white;
+}
+
+.select.dark [class$="-singleValue"] {
+  color: white;
+}
+
+.select [class$="-indicatorSeparator"] {
+  display: none;
+}
+
+.select.dark [class$="-option"]:hover {
+  background-color: var(--dark-mode-background);
+  cursor: pointer;
+}
+
+.select.light [class$="-option"]:hover {
+  background-color: var(--light-mode-background);
+  cursor: pointer;
+  color: black;
+}
+
+.select.dark [class$="-placeholder"] {
+  color: white;
 }

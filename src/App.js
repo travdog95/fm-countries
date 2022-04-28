@@ -15,6 +15,7 @@ const App = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const selectedCountry = useSelector((state) => state.app.selectedCountry);
+  const theme = useSelector((state) => state.app.theme);
 
   useEffect(() => {
     dispatch(fetchCountries());
@@ -37,8 +38,8 @@ const App = () => {
     );
 
   return (
-    <div className="app">
-      <Header theme="Light" />
+    <div className={`app ${theme}`}>
+      <Header />
       <div className="app-container">{PageContent}</div>
     </div>
   );

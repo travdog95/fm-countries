@@ -8,6 +8,7 @@ const BorderCountry = (props) => {
   const { countryCode } = props;
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.app.countries);
+  const theme = useSelector((state) => state.app.theme);
   const country = tko.getCountryByCode(countryCode, countries);
 
   const handleClick = (country) => {
@@ -15,7 +16,10 @@ const BorderCountry = (props) => {
   };
 
   return (
-    <div className={classes.country} onClick={() => handleClick(country)}>
+    <div
+      className={`${classes.country} ${classes[`${theme}`]}`}
+      onClick={() => handleClick(country)}
+    >
       {country.name}
     </div>
   );

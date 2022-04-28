@@ -16,6 +16,10 @@
   background-color: var(--light-mode-background);
 }
 
+.app.dark {
+  background-color: var(--dark-mode-background)
+}
+
 .app-container {
   width: var(--desktop-width);
   margin: 0 auto;

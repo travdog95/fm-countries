@@ -1,6 +1,11 @@
-.header-container {
+.header-container.light {
   background-color: white;
   border-bottom: 1px solid lightgray
+}
+
+.header-container.dark {
+  background-color: var(--dark-mode-elements);
+  color: white;
 }
 
 .header {
