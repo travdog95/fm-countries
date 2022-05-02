@@ -23,4 +23,5 @@
 .app-container {
   width: var(--desktop-width);
   margin: 0 auto;
+  min-height: 100vh;
 }
