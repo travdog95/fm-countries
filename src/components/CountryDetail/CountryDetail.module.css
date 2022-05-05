@@ -43,13 +43,13 @@
 
 .flag-container {
   width: 40rem;
-  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .flag {
   border: none;
   width: 100%;
   aspect-ratio: 3 / 2;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .meta-data {
