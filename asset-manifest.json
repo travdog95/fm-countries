@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fm-countries/static/css/main.dbce09c1.css",
+    "main.js": "/fm-countries/static/js/main.638aaed8.js",
+    "index.html": "/fm-countries/index.html",
+    "main.dbce09c1.css.map": "/fm-countries/static/css/main.dbce09c1.css.map",
+    "main.638aaed8.js.map": "/fm-countries/static/js/main.638aaed8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbce09c1.css",
+    "static/js/main.638aaed8.js"
+  ]
+}

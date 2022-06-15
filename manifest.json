@@ -1,0 +1,6 @@
+{
+  "short_name": "Countries",
+  "name": "Countries",
+  "start_url": ".",
+  "display": "standalone"
+}
