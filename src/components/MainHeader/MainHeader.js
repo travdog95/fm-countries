@@ -11,7 +11,7 @@ import constants from "../../helpers/constants";
 import tko from "../../helpers/utilities";
 
 const MainHeader = () => {
-  const [regionFilter, setRegionFilter] = useState("");
+  const [regionFilter, setRegionFilter] = useState("all");
   const [searchValue, setSearchValue] = useState("");
 
   const dispatch = useDispatch();
