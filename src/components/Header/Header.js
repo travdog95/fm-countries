@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <div className={`${classes["header-container"]} ${classes[`${theme}`]}`}>
       <div className={classes.header}>
-        <div className={classes.title}>Where in the world?</div>
+        <div className={classes.title}>Where in the worlds?</div>
         <div className={classes["theme-container"]} onClick={changeTheme}>
           <FontAwesomeIcon icon={changeThemeIcon} />
           <span className={classes["theme-label"]}>{changeThemeLabel} Mode</span>
